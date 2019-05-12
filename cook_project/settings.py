@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_rangepaginator',
     'storages',
 ]
 
@@ -141,7 +142,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('DB_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('DB_PASS')
-
-AWS_ACCESS_KEY_ID = 'AKIAXPP7TYEEZRPFXC5W'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'cook-project'

@@ -30,11 +30,17 @@ urlpatterns = [
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name='password_reset'),
     path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'), name='password_reset_done'),
     path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
+    #parameteros que o django pede para poder concretizar a confirmação da nova publicação
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name='password_reset_complete'),
     path('', include('blog.urls')),
 ]
 
+
+#Durante o desenvolvimento, pode mostrar imagens da pasta media enviados pelo utilizadores a partir do MEDIA_ROOT usando a visualização django.views.static.serve ().
+
 urlpatterns += staticfiles_urlpatterns()
 
-if settings.DEBUG:
+
+#Se estiver em debug mode isto é adicionado aos urls
+if settings.DEBUG: 
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
