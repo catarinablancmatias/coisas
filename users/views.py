@@ -20,9 +20,9 @@ def register(request):
 @login_required
 def profile(request):
 	if request.method == 'POST':
-		u_form = UserUpdateForm(request.POST, instance=request.user)
+		u_form = UserUpdateForm(request.POST, instance=request.user) #request.POST to past the post data
 		p_form = ProfileUpdateForm(request.POST, 
-									request.FILES,
+									request.FILES, #adicinar files data tambem 
 									instance=request.user.profile)
 		if u_form.is_valid() and p_form.is_valid():
 			u_form.save()
@@ -30,7 +30,7 @@ def profile(request):
 			messages.success(request, f'A sua conta foi atualizada!')
 			return redirect('profile')
 	else:
-		u_form = UserUpdateForm(instance=request.user)
+		u_form = UserUpdateForm(instance=request.user) #o instance é para aparecer o que já esta dentro do conteudo
 		p_form = ProfileUpdateForm(instance=request.user.profile)
 
 	context = {
